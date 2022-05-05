@@ -25,16 +25,18 @@ function App() {
 
   return (
     <div className="coin_app">
-      <div className="coin_search">
+      <div >
+        <div className="coin_search">
         <h1 className='coin_text'>Search a Crypto Currency</h1>
-        <form>
-          <input type="text" placeholder='Enter a Currency' className='coin_input' onChange={handleChange}  />
-        </form>
+          <form>
+            <input type="text" placeholder='Enter a Currency' className='coin_input' onChange={handleChange}  />
+          </form>
+        </div>
         {coinFilter.map(coin =>{
-          const {id,name,image,symbol,market_cap,current_price} = coin
+          const {id,name,image,symbol,market_cap,current_price,total_volume,price_change_percentage_24h} = coin
           return(
-            <Coin key={id} name={name} image={image} symbol={symbol}
-              volume={market_cap} price={current_price}
+            <Coin key={id} name={name} image={image} symbol={symbol} priceChange={price_change_percentage_24h}
+              market_cap={market_cap} price={current_price} volume={total_volume}
             />
           )
         })}
